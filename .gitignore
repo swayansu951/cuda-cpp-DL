@@ -1,7 +1,0 @@
-*.exe
-*.pt
-*.sqlite
-*.nsys-rep
-*.vs
-*.vscode
-weights/
