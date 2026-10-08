@@ -1,8 +1,7 @@
-*.pt
 *.exe
+*.pt
 *.sqlite
 *.nsys-rep
-.vs
-.vscode
-nanoGPT/
+*.vs
+*.vscode
 weights/
