@@ -1,0 +1,5 @@
+*The "weights" file in the "learning/module6/6c" also needed in "learning/module6/6b", displace the file or copy it.
+
+
+
+*Cross-check all the codes before executing, might have some issues.
