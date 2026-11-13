@@ -11,6 +11,7 @@
     }\
 }
 #define TILE_SIZE  16
+
 // gelu kernel has parameters, a matrix x and a hiddenDim n
 __global__ void GeluKernel(float* x, int n){
     int i = blockIdx.x * blockDim.x + threadIdx.x;
@@ -18,7 +19,7 @@ __global__ void GeluKernel(float* x, int n){
         float var = x[i];
         // get the value num * (var + num2 * var^3)
         float inner = 0.7978845608f * (var + 0.044715f * var*var*var);
-        x[i] = 0.5f * var * (1.0f + tanh(inner)); // add this to the matrix back x[i]
+        x[i] = 0.5f * var * (1.0f + erff(var * 0.70710678f)); // add this to the matrix back x[i]
     }   
 }
 
@@ -172,7 +173,7 @@ int main(){
         // takes the value from the same cpu_output matrix (iteratively) and compute them and then replace them
         // get the value num * (var + num2 * var^3)
         float inner = 0.7978845608f * (var + 0.044715f * var*var*var);
-        cpu_hidden[i] = 0.5f * var * (1.0f + tanh(inner)); // add this to the matrix back x[i]
+        x[i] = 0.5f * var * (1.0f + erff(var * 0.70710678f)); // add this to the matrix back x[i]
     }
     for (int row = 0; row<m2; row++){
         for (int col = 0; col<n2; col++){

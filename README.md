@@ -25,6 +25,7 @@ and experiments while learning
 Instead of only using PyTorch or TensorFlow,
 I want to understand how they work internally.
 
+*refer the "important_note.txt" file for any issue.
 ## Repo Structure
 ```md
 cuda-cpp-DL/
